@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import AgoraUIKit, { PropsInterface } from 'agora-react-uikit'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FunctionComponent = () => {
+    const [videocall, setVideocall] = useState(true)
+    const props: PropsInterface = {
+        rtcProps: {
+            appId: 'dbef1bef8c344aeabd263367c1f28bea',
+            channel: 'smartdoorbell',
+            token: '007eJxTYOCYdKODrb0j6M7aktDYYs5Ws8aErxa/pqgKNwiyRhxeLqjAkJKUmmYIxBbJxiYmiamJSSlGZsbGZubJhmlGFkmpiU6ur1IaAhkZfjzew8rIAIEgPi9DcW5iUUlKfn5RUmpODgMDADApIz4=', // pass in channel token if the app is in secure mode
+        },
+        callbacks: {
+            EndCall: () => setVideocall(false),
+        },
+    }
+    return (
+        <div style={styles.container}>
+            {videocall ? <AgoraUIKit rtcProps={props.rtcProps} callbacks={props.callbacks} /> : null}
+        </div>
+    )
 }
 
-export default App;
+const styles = {
+    container: { width: '100vw', height: '100vh', display: 'flex', flex: 1 },
+}
+
+export default App
