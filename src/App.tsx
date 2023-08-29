@@ -7,7 +7,7 @@ const App: React.FunctionComponent = () => {
         rtcProps: {
             appId: 'dbef1bef8c344aeabd263367c1f28bea',
             channel: 'smartdoorbell',
-            token: '007eJxTYBCYkil2KkZXPNGG+3fAcf6zPGs4+vac2ya/gXvin78XXt5VYEhJSk0zBGKLZGMTk8TUxKQUIzNjYzPzZMM0I4uk1MRLW16nNAQyMvhzu7IyMkAgiM/LUJybWFSSkp9flJSak8PAAACmVyRt', // pass in channel token if the app is in secure mode
+            token: '007eJxTYPCr2rxt3cHS6PxremsmdW3W1jDgUveb89mj7/DG7vKwTZwKDClJqWmGQGyRbGxikpiamJRiZGZsbGaebJhmZJGUmhhj/S6lIZCRoWJvFxMjAwSC+LwMxbmJRSUp+flFSak5OQwMALpVJD8=', // pass in channel token if the app is in secure mode
         },
         callbacks: {
             EndCall: () => setVideocall(false),
